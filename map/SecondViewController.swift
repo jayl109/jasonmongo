@@ -10,11 +10,10 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    var date=NSDate()
     @IBOutlet weak var pokemonname: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     
@@ -24,10 +23,12 @@ class SecondViewController: UIViewController {
         if let name = pokemonname.text
         {
         print (name)
+        print (date.description)
         }
         else{
             print ("no pokemon entered")
         }
+        //Placeholder for database code
 
     /*
     // MARK: - Navigation

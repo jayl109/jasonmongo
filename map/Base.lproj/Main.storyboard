@@ -17,31 +17,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Default" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fod-as-w7Q">
-                                <rect key="frame" x="263" y="374" width="61" height="34"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="j9f-PD-BZ5">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="338"/>
-                            </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrk-nZ-Jbm">
-                                <rect key="frame" x="226" y="425" width="135" height="30"/>
-                                <state key="normal" title="Back to my location"/>
-                                <connections>
-                                    <action selector="resetlocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e3N-6Z-XgJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drK-VU-MNK">
-                                <rect key="frame" x="195" y="471" width="208" height="48"/>
-                                <state key="normal" title="Add pokemon to my location"/>
-                                <connections>
-                                    <segue destination="KSf-7O-dtJ" kind="show" id="eLP-Lo-Q0t"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="r7n-36-4rP">
+                                <rect key="frame" x="31" y="34" width="538" height="456"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="j9f-PD-BZ5">
+                                        <rect key="frame" x="0.0" y="0.0" width="538" height="306"/>
+                                    </mapView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bq6-qf-w5E">
+                                        <rect key="frame" x="171" y="306" width="196" height="150"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Default" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fod-as-w7Q">
+                                                <rect key="frame" x="68" y="0.0" width="61" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrk-nZ-Jbm">
+                                                <rect key="frame" x="31" y="50" width="135" height="50"/>
+                                                <state key="normal" title="Back to my location"/>
+                                                <connections>
+                                                    <action selector="resetlocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e3N-6Z-XgJ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drK-VU-MNK">
+                                                <rect key="frame" x="0.0" y="100" width="196" height="50"/>
+                                                <state key="normal" title="Add pokemon to my location"/>
+                                                <connections>
+                                                    <segue destination="KSf-7O-dtJ" kind="show" id="eLP-Lo-Q0t"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r7n-36-4rP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3TJ-KQ-UGV"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="box" destination="Fod-as-w7Q" id="LyZ-cW-qxD"/>
