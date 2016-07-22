@@ -7,26 +7,49 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
+import Firebase
+import FirebaseDatabase
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, UITextFieldDelegate{
 
-    var date=NSDate()
+    //var date=NSDate()
+    var database=FIRDatabaseReference.init()
+    var locationregion:MKCoordinateRegion?=nil
     @IBOutlet weak var pokemonname: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor=UIColor(red: 0, green: 191.0, blue: 255.0, alpha: 1.0)
+        database = FIRDatabase.database().reference()
+        pokemonname.delegate=self
+        if locationregion != nil{
+            print(locationregion!.center.latitude)
+                    }
     }
-
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
+    
+    
+    
+    @IBAction func userTappedBackground(sender: AnyObject) {
+        view.endEditing(true)
+    }
     
     
     @IBAction func submitPokemon(sender: AnyObject) {
         print ("Your pokemon is:")
-        if let name = pokemonname.text
+        if pokemonname.text != nil && pokemonname.text != "" && locationregion != nil
         {
-        print (name)
-        print (date.description)
-        }
+            let key = database.childByAutoId().key
+            let stuff = ["Name": String(pokemonname.text!), "Lat": Double(locationregion!.center.latitude), "Long": Double(locationregion!.center.longitude)]
+            self.database.child(key).setValue(stuff)
+               }
         else{
             print ("no pokemon entered")
+        
         }
         //Placeholder for database code
 
