@@ -51,7 +51,11 @@ class SecondViewController: UIViewController, UITextFieldDelegate{
             print ("no pokemon entered")
         
         }
+<<<<<<< HEAD
         
+=======
+        //Placeholder for database code
+>>>>>>> origin/master
 
     /*
     // MARK: - Navigation
